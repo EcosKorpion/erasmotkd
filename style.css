@@ -157,6 +157,7 @@ header {
     display: flex;
     gap: 10px;
     cursor: pointer;
+
     &:hover {
         text-decoration: underline;
     }
@@ -176,6 +177,7 @@ header {
     display: flex;
     gap: 10px;
     cursor: pointer;
+
     &:hover {
         text-decoration: underline;
     }
@@ -203,7 +205,7 @@ header {
     justify-content: center;
     background-color: #000000;
     width: 100%;
-    height: clamp(650px, 80vh, 1200px);
+    height: clamp(540px, 80vh, 1200px);
     padding-top: 20px;
 }
 
@@ -227,7 +229,7 @@ header {
 
 .aprenda .content_wrapper_1:has(.contact_us:hover) .textwrapper_1 {
 
-    padding-top: 180px;
+    padding-top: 80px;
     padding-bottom: 20px;
 
     transition: 0.25s;
@@ -254,7 +256,7 @@ header {
 }
 
 .textwrapper_1 {
-    padding-top: 200px;
+    padding-top: 100px;
 }
 
 .textwrapper_1 h1 {
@@ -303,6 +305,7 @@ header {
 }
 
 .godown_sec {
+    position: relative;
     display: flex;
     justify-content: center;
     background-color: var(--secondary);
@@ -315,13 +318,12 @@ header {
     width: 80px;
     height: 80px;
     border-radius: 80px;
-    padding-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 
-    &:hover img{
+    &:hover img {
         transition: 0.5s;
         transform: scale(1.2);
     }
@@ -368,37 +370,78 @@ header {
     margin-top: 100px;
 }
 
-.image_frame2 {
+.gallery_container {
+    transition: 0.5s;
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: clamp(300px, 95%, 846px);
     height: 512px;
-    background-image: url(img/tkd2.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: aqua;
     border: var(--robson) 3px solid;
     z-index: 10;
     box-shadow: 0px 15px 4px 0px #00000040;
+
+    &:hover {
+        transition: 0.5s;
+        transform: scale(1.1);
+    }
 }
 
-.arrow_foward {
-    margin-left: 20px;
+.slider_wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.move_next {
+    transition: 0.5s;
+    left: -50%;
+    transform: translateX(-50%);
+}
+
+.move_back {
+    transition: 0.5s;
+    right: -50%;
+    transform: translateX(50%);
+}
+
+.slider img {
+    position: relative;
+    flex: 1 0 100%;
+    object-fit: cover;   
+}
+
+.slider_nav {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+}
+
+.arrow_back {
     transform: scale(-1);
     width: 50px;
     height: 50px;
     cursor: pointer;
-    
+
     &:hover {
         transform: scale(-1.2);
     }
 }
 
-.arrow_back {
-    margin-right: 20px;
+.arrow_foward {
     width: 50px;
     height: 50px;
     cursor: pointer;
@@ -844,16 +887,16 @@ footer {
     .aprenda .contact_us:hover {
 
         transition: 0.5s;
-    
+
         background-color: var(--primary);
-    
+
         width: 300px;
         height: 70px;
-    
+
         .wrapper_1 {
             color: var(--secondary);
         }
-    
+
         .wrapper_1 img {
             filter: invert(100%);
         }
@@ -863,9 +906,9 @@ footer {
 
         padding-top: 80px;
         padding-bottom: 20px;
-    
+
         transition: 0.25s;
-    
+
     }
 
     .textwrapper_1 {
@@ -925,6 +968,45 @@ footer {
         cursor: pointer;
     }
 
+    .instagram {
+        background-color: var(--primary);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        height: 750px;
+        margin-top: 50px;
+        margin-bottom: 25px;
+        z-index: 1;
+    }
+
+    .textwrapper_2 {
+        text-align: center;
+        font-family: Korean;
+        font-size: clamp(60px, 10vw, 100px);
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .gallery_container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: clamp(300px, 95%, 846px);
+        height: 512px;
+        border: var(--robson) 3px solid;
+        z-index: 10;
+        box-shadow: 0px 15px 4px 0px #00000040;
+    
+        &:hover {
+            transform: scale(1);
+        }
+    }
+
     .belt {
         position: absolute;
         display: flex;
@@ -934,7 +1016,7 @@ footer {
         height: 60px;
         background-color: #000000;
         padding-right: 20px;
-        margin-top: 1050px;
+        margin-top: 650px;
         z-index: 1;
     }
 
@@ -978,8 +1060,6 @@ footer {
         flex-direction: column;
         gap: 10px;
     }
-
-    /*arrumar distancia*/
 
     .tkdinfo {
         padding-top: 100px;
